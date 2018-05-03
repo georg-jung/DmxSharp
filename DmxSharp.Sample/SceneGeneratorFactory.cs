@@ -6,7 +6,7 @@ namespace DmxSharp.Sample
     {
         public ISceneGenerator CreateGenerator(IUniverse universe)
         {
-            return new RedSceneGenerator(universe);
+            return new ColorSceneGenerator(universe);
         }
     }
 }

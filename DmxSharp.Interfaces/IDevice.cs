@@ -7,5 +7,6 @@ namespace DmxSharp.Interfaces
         Guid Identifier { get; }
         string FriendlyName { get; }
         int ChannelsCount { get; }
+        IDeviceState<IDevice> CreateState();
     }
 }

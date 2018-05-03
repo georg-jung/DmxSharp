@@ -1,20 +1,14 @@
-﻿using System.Drawing;
-using DmxSharp.Devices;
+﻿using DmxSharp.Devices;
 using DmxSharp.Interfaces;
 
 namespace DmxSharp.DeviceStates
 {
-    public class RgbLightState : IDeviceState<RgbLight>
+    public class RgbLightState : ColorDeviceState<RgbLight>
     {
-        public RgbLightState(RgbLight device)
+        public RgbLightState(RgbLight device) : base(device)
         {
-            Device = device;
         }
 
-        public Color Color { get; set; }
-
-        public RgbLight Device { get; }
-        public bool IsActive => Color != Color.Black;
-        public byte[] Data => new[] {Color.R, Color.G, Color.B};
+        public override byte[] Data => Color.GetRgb();
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Drawing;
 using DmxSharp.Devices;
 using DmxSharp.DeviceStates;
 using DmxSharp.Interfaces;
+using DmxSharp.Models;
 
 namespace DmxSharp.Sample
 {
-    public class RedSceneGenerator : ISceneGenerator
+    public class ColorSceneGenerator : ISceneGenerator
     {
         public Color Color { get; set; }
 
-        public RedSceneGenerator(IUniverse universe)
+        public ColorSceneGenerator(IUniverse universe)
         {
             Universe = universe;
         }
@@ -22,9 +22,11 @@ namespace DmxSharp.Sample
 
             foreach (var device in Universe.Devices.Keys)
             {
-                if (device is RgbLight rgbLight)
+                if (device is ColorDevice colorDev)
                 {
-                    var rgbState = new RgbLightState(rgbLight) {Color = this.Color};
+                    var colorState = device.CreateState();
+
+                    var rgbState = new RgbLightState(rgbLight) {Color = Color};
                     scene.DeviceStates.Add(rgbState);
                 }
             }

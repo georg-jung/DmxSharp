@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DmxSharp.Extensions;
 using DmxSharp.Interfaces;
 
@@ -15,12 +16,13 @@ namespace DmxSharp
         public byte[] GetData(IScene scene, IUniverse universe)
         {
             var data = new byte[512];
-            foreach (var state in scene.DeviceStates)
+            var currentScene = SceneFilters.Where(filter => filter.Active).Aggregate(scene, (current, filter) => filter.Filter(current));
+            foreach (var state in currentScene.DeviceStates)
             {
                 var device = state.Device;
                 var deviceType = state.GetDeviceType();
                 var currentState = state;
-                foreach (var filter in DeviceFilters)
+                foreach (var filter in DeviceFilters.Where(f => f.Active))
                 {
                     var filterType = filter.GetDeviceType();
                     if (filterType.IsAssignableFrom(deviceType))

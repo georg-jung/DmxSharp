@@ -18,15 +18,6 @@ namespace DmxSharp
         {
             var scene = new Scene();
 
-            foreach (var device in Universe.Devices.Keys)
-            {
-                if (device is RgbLight rgbLight)
-                {
-                    var rgbState = new RgbLightState(rgbLight) {Color = Color.Red};
-                    scene.DeviceStates.Add(rgbState);
-                }
-            }
-
             var e = new SceneChangedEventArgs(signal, scene);
             SceneChanged?.Invoke(this, e);
         }

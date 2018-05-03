@@ -2,6 +2,7 @@
 {
     public interface IDeviceFilter
     {
+        bool Active { get; set; }
         IDeviceState<TDevice> Filter<TDevice>(IDeviceState<TDevice> state) where TDevice : IDevice;
     }
 

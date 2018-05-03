@@ -9,5 +9,6 @@ namespace DmxSharp.Interfaces
         Guid Identifier { get; }
         string FriendlyName { get; }
         IReadOnlyCollection<IDevice> Devices { get; }
+        IDeviceGroupState GetState(IScene scene);
     }
 }

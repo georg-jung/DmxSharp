@@ -13,6 +13,7 @@ namespace DmxSharp
         public Guid Identifier { get; }
         public string FriendlyName { get; set; }
         public abstract int ChannelsCount { get; }
+        public abstract IDeviceState<IDevice> CreateState();
 
         public override bool Equals(object obj)
         {

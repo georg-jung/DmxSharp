@@ -4,10 +4,8 @@ using System.Text;
 
 namespace DmxSharp.Interfaces
 {
-    public interface IDeviceGroupState<out TDeviceGroup> where TDeviceGroup : IDeviceGroup
+    public interface IDeviceGroupState : IDeviceGroup
     {
-        TDeviceGroup DeviceGroup { get; }
-        IReadOnlyCollection<IDeviceState<IDevice>> DeviceStates { get; }
         bool IsActive { get; }
     }
 }

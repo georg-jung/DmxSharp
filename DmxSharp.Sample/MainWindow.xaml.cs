@@ -13,8 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DmxSharp.Devices;
+using DmxSharp.Filters.Scene;
 using DmxSharp.SignalGenerators;
-using Color = System.Drawing.Color;
 
 namespace DmxSharp.Sample
 {
@@ -25,7 +25,10 @@ namespace DmxSharp.Sample
     {
         private Controller _controller;
         private AvSink _sink;
-        private RedSceneGenerator _sceneGen;
+        private ColorSceneGenerator _sceneGen;
+        private ManualGenerator _trigger;
+        private SceneTranslator _translator;
+        private SceneBlackout _blackout;
 
         public MainWindow()
         {
@@ -36,45 +39,55 @@ namespace DmxSharp.Sample
         public void CreateDmx()
         {
             var uni = new Universe();
-            var sTrans = new SceneTranslator();
             var sgenFac = new SceneGeneratorFactory();
-            var sigGen = new HertzGenerator();
+            var sigGen = new CompositeGenerator();
+            _trigger = new ManualGenerator();
             _sink = new AvSink("192.168.0.2", 5120);
-            _controller = new Controller(uni, sTrans, sgenFac, sigGen, _sink);
+            _controller = new Controller(uni, _translator, sgenFac, sigGen, _sink);
+
+            sigGen.Add(_trigger);
+            sigGen.Add(new HertzGenerator(5000));
+
+            _translator = new SceneTranslator();
+            _blackout = new SceneBlackout();
+            _translator.SceneFilters.Add(_blackout);
 
             uni.TryAddDevice(new RgbLight(Guid.NewGuid()), 17); // klSu
             uni.TryAddDevice(new RgbLight(Guid.NewGuid()), 25); // klSo
 
-            _sceneGen = (RedSceneGenerator)_controller.SceneGenerator;
+            _sink.TurnOn();
+
+            _sceneGen = (ColorSceneGenerator)_controller.SceneGenerator;
         }
 
         private void ButtonR_Click(object sender, RoutedEventArgs e)
         {
-            if (!_sink.TurnedOn) _sink.TurnOn();
-            _sceneGen.Color = Color.Red;
+            _sceneGen.Color = Models.Color.Red;
+            _trigger.Trigger();
         }
 
         private void ButtonG_Click(object sender, RoutedEventArgs e)
         {
-            if (!_sink.TurnedOn) _sink.TurnOn();
-            _sceneGen.Color = Color.Green;
+            _sceneGen.Color = Models.Color.Green;
+            _trigger.Trigger();
         }
 
         private void ButtonB_Click(object sender, RoutedEventArgs e)
         {
-            if (!_sink.TurnedOn) _sink.TurnOn();
-            _sceneGen.Color = Color.Blue;
+            _sceneGen.Color = Models.Color.Blue;
+            _trigger.Trigger();
         }
 
         private void ButtonW_Click(object sender, RoutedEventArgs e)
         {
-            if (!_sink.TurnedOn) _sink.TurnOn();
-            _sceneGen.Color = Color.White;
+            _sceneGen.Color = Models.Color.White;
+            _trigger.Trigger();
         }
 
-        private void ButtonAus_Click(object sender, RoutedEventArgs e)
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (_sink.TurnedOn) _sink.TurnOff();
+            _blackout.Active = Blackout.IsChecked == true;
+            _trigger.Trigger();
         }
     }
 }
