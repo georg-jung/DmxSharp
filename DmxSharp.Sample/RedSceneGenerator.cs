@@ -8,6 +8,8 @@ namespace DmxSharp.Sample
 {
     public class RedSceneGenerator : ISceneGenerator
     {
+        public Color Color { get; set; }
+
         public RedSceneGenerator(IUniverse universe)
         {
             Universe = universe;
@@ -22,7 +24,7 @@ namespace DmxSharp.Sample
             {
                 if (device is RgbLight rgbLight)
                 {
-                    var rgbState = new RgbLightState(rgbLight) {Color = Color.Red};
+                    var rgbState = new RgbLightState(rgbLight) {Color = this.Color};
                     scene.DeviceStates.Add(rgbState);
                 }
             }

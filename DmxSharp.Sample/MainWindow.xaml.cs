@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DmxSharp.Devices;
 using DmxSharp.SignalGenerators;
+using Color = System.Drawing.Color;
 
 namespace DmxSharp.Sample
 {
@@ -24,6 +25,7 @@ namespace DmxSharp.Sample
     {
         private Controller _controller;
         private AvSink _sink;
+        private RedSceneGenerator _sceneGen;
 
         public MainWindow()
         {
@@ -42,12 +44,37 @@ namespace DmxSharp.Sample
 
             uni.TryAddDevice(new RgbLight(Guid.NewGuid()), 17); // klSu
             uni.TryAddDevice(new RgbLight(Guid.NewGuid()), 25); // klSo
+
+            _sceneGen = (RedSceneGenerator)_controller.SceneGenerator;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonR_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_sink.TurnedOn) _sink.TurnOn();
+            _sceneGen.Color = Color.Red;
+        }
+
+        private void ButtonG_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_sink.TurnedOn) _sink.TurnOn();
+            _sceneGen.Color = Color.Green;
+        }
+
+        private void ButtonB_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_sink.TurnedOn) _sink.TurnOn();
+            _sceneGen.Color = Color.Blue;
+        }
+
+        private void ButtonW_Click(object sender, RoutedEventArgs e)
+        {
+            if (!_sink.TurnedOn) _sink.TurnOn();
+            _sceneGen.Color = Color.White;
+        }
+
+        private void ButtonAus_Click(object sender, RoutedEventArgs e)
         {
             if (_sink.TurnedOn) _sink.TurnOff();
-            else _sink.TurnOn();
         }
     }
 }

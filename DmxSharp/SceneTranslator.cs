@@ -26,7 +26,8 @@ namespace DmxSharp
                     if (filterType.IsAssignableFrom(deviceType))
                         currentState = filter.Filter(currentState);
                 }
-                currentState.Data.CopyTo(data, universe.Devices[device]);
+                if (currentState.Data.Length != device.ChannelsCount) throw new InvalidOperationException($"device {device.Identifier} should have {device.ChannelsCount} channels but it's state's payload is {currentState.Data.Length}.");
+                currentState.Data.CopyTo(data, universe.Devices[device] - 1);
             }
             return data;
         }

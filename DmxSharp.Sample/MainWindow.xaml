@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="135,89,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="R" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonR_Click"/>
+        <Button Content="G" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Click="ButtonG_Click"/>
+        <Button Content="B" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75" Click="ButtonB_Click"/>
+        <Button Content="W" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="75" Click="ButtonW_Click"/>
+        <Button Content="W" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAus_Click"/>
 
     </Grid>
 </Window>

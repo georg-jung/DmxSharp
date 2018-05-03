@@ -62,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="AvSink.cs" />
     <Compile Include="RedSceneGenerator.cs" />
+    <Compile Include="SceneGeneratorFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
