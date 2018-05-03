@@ -5,9 +5,12 @@ namespace DmxSharp
 {
     public class ControllerBase : IController
     {
+        private readonly ISink _channelSink;
+
         // use the scene generator factory, because a specific SceneGenerator might be shared if given as argument
-        public ControllerBase(IUniverse universe, ISceneTranslator sceneTranslator, ISceneGeneratorFactory sceneGeneratorFactory)
+        public ControllerBase(IUniverse universe, ISceneTranslator sceneTranslator, ISceneGeneratorFactory sceneGeneratorFactory, ISink channelSink)
         {
+            _channelSink = channelSink;
             Universe = universe;
             SceneTranslator = sceneTranslator;
             SceneGenerator = sceneGeneratorFactory.CreateGenerator(Universe);
@@ -25,6 +28,7 @@ namespace DmxSharp
             CurrentScene = e.Scene;
             LastSignal = e.Trigger;
             CurrentData = SceneTranslator.GetData(CurrentScene, Universe);
+            _channelSink.SetChannels(CurrentData);
         }
 
         public ISignal LastSignal { get; private set; }

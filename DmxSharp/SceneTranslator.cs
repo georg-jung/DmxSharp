@@ -14,7 +14,7 @@ namespace DmxSharp
         public List<ISceneFilter<IScene>> SceneFilters { get; } = new List<ISceneFilter<IScene>>();
         public byte[] GetData(IScene scene, IUniverse universe)
         {
-            var data = new byte[511];
+            var data = new byte[512];
             foreach (var state in scene.DeviceStates)
             {
                 var device = state.Device;

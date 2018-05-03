@@ -6,7 +6,7 @@ namespace DmxSharp
     {
         private readonly ISignalGenerator _signalGenerator;
 
-        public Controller(IUniverse universe, ISceneTranslator sceneTranslator, ISceneGeneratorFactory sceneGeneratorFactory, ISignalGenerator signalGenerator) : base(universe, sceneTranslator, sceneGeneratorFactory)
+        public Controller(IUniverse universe, ISceneTranslator sceneTranslator, ISceneGeneratorFactory sceneGeneratorFactory, ISignalGenerator signalGenerator, ISink channelSink) : base(universe, sceneTranslator, sceneGeneratorFactory, channelSink)
         {
             _signalGenerator = signalGenerator;
             _signalGenerator.Signal += SignalGenerator_Signal;

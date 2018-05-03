@@ -16,7 +16,8 @@ namespace DmxSharp
 
         public override bool Equals(object obj)
         {
-            return Identifier.Equals(obj);
+            if (!(obj is IDevice other)) return false;
+            return other.Identifier.Equals(Identifier);
         }
 
         public override int GetHashCode()

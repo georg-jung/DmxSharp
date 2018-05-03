@@ -4,11 +4,11 @@ using DmxSharp.Devices;
 using DmxSharp.DeviceStates;
 using DmxSharp.Interfaces;
 
-namespace DmxSharp
+namespace DmxSharp.Sample
 {
-    public class SceneGenerator : ISceneGenerator
+    public class RedSceneGenerator : ISceneGenerator
     {
-        public SceneGenerator(IUniverse universe)
+        public RedSceneGenerator(IUniverse universe)
         {
             Universe = universe;
         }
