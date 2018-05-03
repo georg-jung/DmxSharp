@@ -48,7 +48,7 @@ namespace DmxSharp
             var length = device.ChannelsCount;
             for (var i = offset; i <= offset + length - 1; ++i)
             {
-                if (_channelAllocation[i] != device) throw new InvalidOperationException("This universe has a corrupted state.");
+                if (!Equals(_channelAllocation[i], device)) throw new InvalidOperationException("This universe has a corrupted state.");
                 _channelAllocation[i] = null;
             }
             return true;
