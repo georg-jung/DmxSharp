@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DmxSharp.Interfaces", "DmxS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmxSharp", "DmxSharp\DmxSharp.csproj", "{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmxSharp.Sample", "DmxSharp.Sample\DmxSharp.Sample.csproj", "{12983040-FFA6-439B-AEA9-4D5FDED3A6F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12983040-FFA6-439B-AEA9-4D5FDED3A6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12983040-FFA6-439B-AEA9-4D5FDED3A6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12983040-FFA6-439B-AEA9-4D5FDED3A6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12983040-FFA6-439B-AEA9-4D5FDED3A6F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
