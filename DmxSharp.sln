@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmxSharp.Interfaces", "DmxSharp.Interfaces\DmxSharp.Interfaces.csproj", "{8D1646F0-ADDD-4E14-A933-8D6B12871C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DmxSharp.Interfaces", "DmxSharp.Interfaces\DmxSharp.Interfaces.csproj", "{8D1646F0-ADDD-4E14-A933-8D6B12871C77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmxSharp", "DmxSharp\DmxSharp.csproj", "{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8D1646F0-ADDD-4E14-A933-8D6B12871C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D1646F0-ADDD-4E14-A933-8D6B12871C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D1646F0-ADDD-4E14-A933-8D6B12871C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A9AD74-2B3D-4867-BA73-C976B6CD30AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
