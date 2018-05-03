@@ -6,8 +6,8 @@ namespace DmxSharp.Interfaces
 {
     public interface ISceneTranslator
     {
-        IReadOnlyList<IDeviceFilter<IDevice>> DeviceFilters { get; }
-        IReadOnlyList<ISceneFilter<IScene>> SceneFilter { get; }
+        IReadOnlyList<IDeviceFilter> DeviceFilters { get; }
+        IReadOnlyList<ISceneFilter<IScene>> SceneFilters { get; }
         byte[] GetData(IScene scene, IUniverse universe);
     }
 }

@@ -4,6 +4,7 @@
     {
         IUniverse Universe { get; }
         ISceneTranslator SceneTranslator { get; }
+        ISceneGenerator SceneGenerator { get; }
         byte[] CurrentData { get; }
     }
 }

@@ -6,7 +6,7 @@ namespace DmxSharp.Interfaces
 {
     public interface IUniverse
     {
-        IReadOnlyCollection<IDevice> Devices { get; }
+        IReadOnlyDictionary<IDevice, int> Devices { get; }
         IReadOnlyCollection<IDeviceGroup> DeviceGroups { get; }
     }
 }
